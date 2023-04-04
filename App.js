@@ -1,20 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import BottomTabsNavigation from "./scr/navigation/BottomTabsNavigation";
+import { Provider } from 'react-redux';
+import  store  from './scr/store/store.js'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>app mobile</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <BottomTabsNavigation />
+      </NavigationContainer>
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
